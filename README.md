@@ -1,65 +1,49 @@
 # Linea zkEVM specification
 
-This repository hosts the specification of the constraint system underlying Linea's zkEVM.
+Kho lưu trữ này lưu trữ thông số kỹ thuật của hệ thống ràng buộc cơ sở zkEVM của Linea.
 
-Constraints are mathematical equations and a constraint system is a collection of such equations. Linea’s constraint system aims to capture the logic of valid EVM executions.
+Ràng buộc là các phương trình toán học và hệ thống ràng buộc là tập hợp các phương trình như vậy. Hệ thống ràng buộc của Linea nhằm mục đích nắm bắt logic của các lần thực thi EVM hợp lệ.
 
-The constraints specified here are implemented in the [linea-constraints](https://github.com/Consensys/linea-constraints) repo.
+Các ràng buộc được chỉ định ở đây được triển khai trong [linea-
 
 It serves developers by making the Linea tech stack open source under 
 the [Apache 2.0 license](LICENSE).
 
-## What is Linea?
+## Linea là gì?
+Xin lưu ý rằng chúng tôi không chấp nhận các đóng góp không phải mã như sửa bình luận, lỗi đánh máy hoặc một số bản sửa lỗi tầm thường khác. Mặc dù chúng tôi đánh giá cao sự trợ giúp thêm này, nhưng việc quản lý nhiều đóng góp nhỏ này là không khả thi và gây thêm áp lực cho hệ thống phân phối liên tục của chúng tôi (chạy tất cả các bài kiểm tra, v.v.). Bạn có thể thoải mái mở một sự cố chỉ ra bất kỳ lỗi nào trong số đó và chúng tôi sẽ nhóm chúng thành một thay đổi duy nhất.
 
-[Linea](https://linea.build) is a developer-ready layer 2 network scaling Ethereum. It's secured with a zero-knowledge rollup, built on lattice-based cryptography, and powered by [Consensys](https://consensys.io).
+1. [Tạo sự cố](https://github.com/Consensys/linea-specification/issues).
+> Nếu bản cập nhật được đề xuất yêu cầu đầu vào, hãy gắn thẻ chúng tôi để thảo luận.
+2. Gửi bản cập nhật dưới dạng yêu cầu kéo từ [phân nhánh của kho lưu trữ này](https://github.com/Consensys/linea-specification/fork) của bạn và gắn thẻ chúng tôi để xem xét.
+> Bao gồm số sự cố trong mô tả yêu cầu kéo và (tùy chọn) trong tên nhánh.
 
-<!-- ## Get started
+ Hãy cân nhắc bắt đầu bằng ["vấn đề đầu tiên tốt"](https://github.com/ConsenSys/linea-specification/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 
-todo -->
+ Trước khi đóng góp, hãy đảm bảo bạn đã quen thuộc với:
 
+- [Hướng dẫn đóng góp Linea](https://github.com/Consensys/linea-monorepo/blob/main/docs/contribute.md)
+- [Quy tắc ứng xử Linea](https://github.com/Consensys/linea-monorepo/blob/main/docs/code-of-conduct.md)
+- [Hướng dẫn đóng góp Besu](https://wiki.hyperledger.org/display/BESU/Coding+Conventions), dành cho các đóng góp liên quan đến Besu:Linea
+- [Chính sách bảo mật](https://github.com/Consensys/linea-monorepo/blob/main/docs/security.md)
 
-## Looking for the Linea code?
+### Liên kết hữu ích## Linea là gì?
+Xin lưu ý rằng chúng tôi không chấp nhận các đóng góp không phải mã như sửa bình luận, lỗi đánh máy hoặc một số bản sửa lỗi tầm thường khác. Mặc dù chúng tôi đánh giá cao sự trợ giúp thêm này, nhưng việc quản lý nhiều đóng góp nhỏ này là không khả thi và gây thêm áp lực cho hệ thống phân phối liên tục của chúng tôi (chạy tất cả các bài kiểm tra, v.v.). Bạn có thể thoải mái mở một sự cố chỉ ra bất kỳ lỗi nào trong số đó và chúng tôi sẽ nhóm chúng thành một thay đổi duy nhất.
 
-Linea's stack is made up of multiple repositories, these include:
+1. [Tạo sự cố](https://github.com/Consensys/linea-specification/issues).
+> Nếu bản cập nhật được đề xuất yêu cầu đầu vào, hãy gắn thẻ chúng tôi để thảo luận.
+2. Gửi bản cập nhật dưới dạng yêu cầu kéo từ [phân nhánh của kho lưu trữ này](https://github.com/Consensys/linea-specification/fork) của bạn và gắn thẻ chúng tôi để xem xét.
+> Bao gồm số sự cố trong mô tả yêu cầu kéo và (tùy chọn) trong tên nhánh.
 
-- This repo, [linea-specification](https://github.com/Consensys/linea-specification): Specification of the constraint system defining Linea's zkEVM
-- [linea-monorepo](https://github.com/Consensys/linea-monorepo): The main repository for the Linea stack & network 
-- [linea-besu](https://github.com/Consensys/linea-besu): Fork of Besu to implement the Linea-Besu client
-- [linea-sequencer](https://github.com/Consensys/linea-sequencer): A set of Linea-Besu plugins for the sequencer and RPC nodes
-- [linea-tracer](https://github.com/Consensys/linea-tracer): Linea-Besu plugin which produces the traces that the constraint system applies and that serve as inputs to the prover
-- [linea-constraints](https://github.com/Consensys/linea-constraints): Implementation of the constraint system from the specification
+ Hãy cân nhắc bắt đầu bằng ["vấn đề đầu tiên tốt"](https://github.com/ConsenSys/linea-specification/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 
-Linea abstracts away the complexity of this technical architecture to allow developers to:
+ Trước khi đóng góp, hãy đảm bảo bạn đã quen thuộc với:
 
-- [Bridge tokens](https://docs.linea.build/developers/guides/bridge)
-- [Deploy a contract](https://docs.linea.build/developers/quickstart/deploy-smart-contract)
-- [Run a node](https://docs.linea.build/developers/guides/run-a-node)
+- [Hướng dẫn đóng góp Linea](https://github.com/Consensys/linea-monorepo/blob/main/docs/contribute.md)
+- [Quy tắc ứng xử Linea](https://github.com/Consensys/linea-monorepo/blob/main/docs/code-of-conduct.md)
+- [Hướng dẫn đóng góp Besu](https://wiki.hyperledger.org/display/BESU/Coding+Conventions), dành cho các đóng góp liên quan đến Besu:Linea
+- [Chính sách bảo mật](https://github.com/Consensys/linea-monorepo/blob/main/docs/security.md)
 
-... and more.
-
-## How to contribute
-
-Contributions are welcome!
-
-### Guidelines for Non-Code and other Trivial Contributions
-Please keep in mind that we do not accept non-code contributions like fixing comments, typos or some other trivial fixes. Although we appreciate the extra help, managing lots of these small contributions is unfeasible, and puts extra pressure in our continuous delivery systems (running all tests, etc). Feel free to open an issue pointing to any of those errors, and we will batch them into a single change.
-
-1. [Create an issue](https://github.com/Consensys/linea-specification/issues).
-> If the proposed update requires input, also tag us for discussion.
-2. Submit the update as a pull request from your [fork of this repo](https://github.com/Consensys/linea-specification/fork), and tag us for review. 
-> Include the issue number in the pull request description and (optionally) in the branch name.
-
-Consider starting with a ["good first issue"](https://github.com/ConsenSys/linea-specification/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
-
-Before contributing, ensure you're familiar with:
-
-- Our [Linea contribution guide](https://github.com/Consensys/linea-monorepo/blob/main/docs/contribute.md)
-- Our [Linea code of conduct](https://github.com/Consensys/linea-monorepo/blob/main/docs/code-of-conduct.md)
-- The [Besu contribution guide](https://wiki.hyperledger.org/display/BESU/Coding+Conventions), for Besu:Linea related contributions
-- Our [Security policy](https://github.com/Consensys/linea-monorepo/blob/main/docs/security.md)
-
-### Useful links
-
+### Liên kết hữu ích 
 - [Linea docs](https://docs.linea.build)
 - [Linea blog](https://linea.mirror.xyz)
 - [Support](https://support.linea.build)
